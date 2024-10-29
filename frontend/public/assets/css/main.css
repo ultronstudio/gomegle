@@ -117,10 +117,10 @@ a {
 }
 
 .header .btn-login {
-    width: 135px !important;
-    height: 132px !important;
-    margin-right: -20px !important;
-    margin-top: 60px !important;
+    width: 135px;
+    height: 132px;
+    margin-right: -20px;
+    margin-top: 60px;
 }
 
 /* Footer Component */
@@ -130,8 +130,7 @@ footer {
     align-items: center;
     width: 100%;
     height: 60px !important;
-    background-color: var(--background);
-    color: var(--text);
+    color: #1C1C20;
     font-size: 0.8rem;
 }
 
@@ -144,37 +143,18 @@ footer .content {
     position: relative;
 }
 
-footer .content .vlny {
-    display: flex;
-    align-items: flex-end; /* Zarovnání na spodní část */
-    justify-content: center;
-    width: 100vw;
-    height: 428px !important;
-    position: fixed; /* Udržuje vlny na spodní části obrazovky */
-    bottom: 0;
-    overflow: hidden;
-}
-
-footer .content .vlny .vlna {
+.vlny {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 428px;
-    position: absolute;
+    height: 75vh;
+    position: fixed;
+    bottom: 0; /* Udržuje vlny na spodní části obrazovky */
     background-repeat: no-repeat;
-    background-size: cover; /* Upraví velikost na celou šířku */
-    background-image: url('/assets/img/vlna.svg');
-}
-
-footer .content .vlny .vlna.vlna1 {
-    z-index: 10;
-}
-
-footer .content .vlny .vlna.vlna2 {
-    z-index: 8;
-    opacity: 0.8;
-    transform: rotate(-10deg);
+    background-size: 100% auto; /* Upraví velikost na šířku obrazovky, výška se přizpůsobí */
+    background-image: url('/assets/img/vlny.svg');
+    z-index: -999;
 }
 
 /* Main Page */
@@ -264,4 +244,99 @@ main.content .go-chat .go-chat-btn.disabled {
 main.content .go-chat .go-chat-btn:hover:not(.disabled) {
     background-color: var(--primary-dark);
     cursor: pointer;
+}
+
+/* Responzivní styly pro mobilní zařízení */
+@media (max-width: 768px) {
+
+    /* Header */
+    .header .content {
+        flex-direction: column;
+        height: auto;
+        padding: 5px 15px;
+    }
+
+    .header .content .logo {
+        margin-bottom: 10px;
+    }
+
+    .header .content .logo .beta-badge {
+        font-size: 0.7rem;
+        padding: 3px 8px;
+    }
+
+    .header .content .menu {
+        height: auto;
+        border-radius: 15px;
+        margin-top: 10px;
+        border: none;
+        border-radius: 0;
+        background-color: transparent;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .header .content .menu .items {
+        font-size: 1.2rem;
+        margin: 0;
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .header .content .right-side {
+        display: none !important;
+    }
+
+    /* Footer */
+    footer {
+        font-size: 0.7rem;
+        padding: 10px;
+    }
+
+    footer .content {
+        flex-direction: column;
+    }
+
+    /* Vlny */
+    .vlny {
+        height: 30vh; /* Snížená výška pro mobilní zobrazení */
+        background-size: cover;
+    }
+
+    /* Main Page - Go Chat Section */
+    main.content .go-chat {
+        margin-top: 10px;
+        align-items: center;
+    }
+
+    main.content .go-chat .termsbox {
+        font-size: 0.9rem;
+        padding: 0 5px;
+        text-align: center;
+    }
+
+    main.content .go-chat .termsbox label {
+        margin-left: 5px;
+    }
+
+    /* Checkbox */
+    input[type="checkbox"] {
+        width: 1em;
+        height: 1em;
+        border: 1.5px solid var(--primary);
+    }
+
+    input[type="checkbox"]::before {
+        width: 0.5em;
+        height: 0.5em;
+    }
+
+    /* Go Chat Button */
+    main.content .go-chat .go-chat-btn {
+        width: 180px !important;
+        height: 80px !important;
+        font-size: 1.2rem;
+        padding: 8px;
+    }
 }

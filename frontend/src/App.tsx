@@ -6,6 +6,7 @@ function App() {
   const [termsChecked, setTermsChecked] = useState(false);
   return (
     <>
+      <div className="vlny"></div>
       <Header />
       <main className="content">
         <div className='go-chat'>
